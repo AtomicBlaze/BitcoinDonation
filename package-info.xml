@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<name>Bitcoin Donation</name>
+	<id>Atomic_Blaze:BitcoinDonation</id>
+	<type>modification</type>
+	<version>0.0.0</version>
+	
+    <install for="2.0 - 2.0.99">
+        <readme type="file" parsebbc="true">README.md</readme>
+		<database>install.php</database>
+        <modification type="file" format="xml">BitcoinDonation.xml</modification>
+        <require-file name="Subs-Toshi.php" destination="$sourcedir" />
+        <require-file name="Subs-Coinbase.php" destination="$sourcedir" />
+    </install>
+    
+    <uninstall for="2.0 - 2.0.99">
+        <modification type="file" format="xml" reverse="true">BitcoinDonation.xml</modification>
+		<remove-file error="skip" name="$sourcedir/Subs-Toshi.php" />
+		<remove-file error="skip" name="$sourcedir/Subs-Coinbase.php" />
+	</uninstall>
+</package-info>
