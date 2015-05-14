@@ -33,6 +33,8 @@ global $smcFunc;
 
 db_extend('packages');
 
+add_integration_function('integrate_pre_include', '$sourcedir/Subs-Bitcoin.php', true);
+
 $smcFunc['db_insert']('ignore', '{db_prefix}settings',
     array(
         'variable' => 'string',
@@ -40,7 +42,6 @@ $smcFunc['db_insert']('ignore', '{db_prefix}settings',
     ),
     array(
 		array('BitcoinAddress', ''),
-		array('BitcoinMethod', 'toshi'),
 	),
 	array()
 );

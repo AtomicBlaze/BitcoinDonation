@@ -24,16 +24,28 @@ if (!defined('SMF'))
 
 function toshi_get_address($address)
 {
-	if(!function_exists(curl_init()))
+	global $modSettings; 
+	
+	// Let's make sure cURL is enabled and there is an address set
+	if(!function_exists(curl_init()) || $modSettings['BitcoinAddress'] == '')
 		return;
 
+	// We made it!
 	$ch = curl_init();
-	
+		
+	// Set some options
 	curl_setopt($ch, CURL_URL, "https://bitcoin.toshi.io/api/v0/addresses/$address");
 	curl_setopt($ch, CURL_HEADER, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)");
 	curl_setopt($ch, CURL_RETURNTRANSFER, true);
 	
+	// Execute the exchange
 	curl_exec($ch);
 	
+	// Close the connection, this saves memory and valuable CPU cycles
 	curl_close($ch);
+}
+
+function get_qrcode($address)
+{
+	// This function will house the (likely massive) QR generation code.
 }
