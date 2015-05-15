@@ -22,12 +22,10 @@ This file is part of "Bitcoin Donations".
 if (!defined('SMF'))
 	die('Hacking attempt...');
 
-function toshi_get_address($address)
-{
-	global $modSettings; 
+function toshi_get_address($address) 
 	
 	// Let's make sure cURL is enabled and there is an address set
-	if(!function_exists(curl_init()) || $modSettings['BitcoinAddress'] == '')
+	if(!function_exists(curl_init()) && isset($address))
 		return;
 
 	// We made it!
@@ -49,3 +47,5 @@ function get_qrcode($address)
 {
 	// This function will house the (likely massive) QR generation code.
 }
+
+?>

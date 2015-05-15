@@ -4,7 +4,7 @@
 	<name>Bitcoin Donation</name>
 	<id>Atomic_Blaze:BitcoinDonation</id>
 	<type>modification</type>
-	<version>0.0.0</version>
+	<version>1.0.0_APLHA</version>
 	
     <install for="2.0 - 2.0.99">
         <readme type="file" parsebbc="true">README.md</readme>
